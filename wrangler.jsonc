@@ -1,0 +1,8 @@
+{
+  "name": "acid-fairies-preview",
+  "compatibility_date": "2026-11-18",
+  "assets": {
+    "directory": "./dist"
+  },
+  "previews": {}
+}
