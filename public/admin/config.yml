@@ -1,8 +1,13 @@
+publish_mode:
+  type: preview
+  direct_publish: true
+  allow_incomplete_drafts: false
+
 backend:
   name: github
-  repo: martajew/martajew.github.io
+  repo: aartajew/martajew.github.io
+  preview_context: preview/cloudflare
   base_url: https://sveltia-cms-auth.adam-artajew.workers.dev
-  skip_ci: true
 
 media_folder: /content/media
 
