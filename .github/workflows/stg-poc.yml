@@ -1,0 +1,44 @@
+name: STG Pages PoC
+
+on:
+  push:
+    branches: [cms-preview]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stg-pages
+  cancel-in-progress: true
+
+jobs:
+  stg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify STG token
+        env:
+          STG_REPO_TOKEN: ${{ secrets.STG_REPO_TOKEN }}
+        run: |
+          if [ -z "$STG_REPO_TOKEN" ]; then
+            echo "::error::Add STG_REPO_TOKEN to aartajew/martajew.github.io"
+            exit 1
+          fi
+      - uses: actions/checkout@v7
+      - name: Read Node.js version
+        id: node-version
+        run: echo "version=$(awk -F '"' '/^node = / { print $2 }' mise.toml)" >> "$GITHUB_OUTPUT"
+      - uses: withastro/action@v6
+        with:
+          node-version: ${{ steps.node-version.outputs.version }}
+          build-cmd: npm run build -- --site https://aartajew.github.io --base /acid-fairies-stg
+      - name: Publish static site
+        env:
+          STG_REPO_TOKEN: ${{ secrets.STG_REPO_TOKEN }}
+        run: |
+          touch dist/.nojekyll
+          git -C dist init -b gh-pages
+          git -C dist config user.name 'github-actions[bot]'
+          git -C dist config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C dist add -A
+          git -C dist commit -qm "Deploy $GITHUB_SHA"
+          git -C dist push --force "https://x-access-token:${STG_REPO_TOKEN}@github.com/aartajew/acid-fairies-stg.git" HEAD:gh-pages
