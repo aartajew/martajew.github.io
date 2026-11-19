@@ -22,10 +22,21 @@ permissions:
 
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Publish staged changes
+        if: github.event_name == 'repository_dispatch'
+        run: |
+          git fetch origin stg
+          git merge --ff-only origin/stg
+          git push origin HEAD:main
       - name: Read Node.js version
         id: node-version
         run: echo "version=$(awk -F '\"' '/^node = / { print $2 }' mise.toml)" >> "$GITHUB_OUTPUT"
