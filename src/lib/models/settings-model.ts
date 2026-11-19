@@ -10,7 +10,9 @@ export class SettingsModel {
 
   static fromEntries(entries: SettingsCollectionEntry[]): SettingsModel {
     const sections: Partial<Record<SettingsSection, SettingsData>> = {}
-    for (const { data } of entries) sections[data.section] = data
+    for (const { data } of entries) {
+      sections[data.section] = data
+    }
     return new SettingsModel(sections as SettingsMap)
   }
 

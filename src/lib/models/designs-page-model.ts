@@ -44,8 +44,9 @@ export class DesignsPageModel extends PageModel {
   }
 
   private getPaginationUrl(url: string | undefined): string | undefined {
-    if (!url)
+    if (!url) {
       return undefined
+    }
     const path = this.page.getStaticPath()
     return path ? `/${path}${url}` : url
   }

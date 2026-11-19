@@ -39,7 +39,7 @@ blocks:
     size: h1
     lead: Kinga, Emilia & Dominika are our three gorgeous models.
     body: |-
-      We want to be as inclusive as possible, so we try to show you our clothes on as many different bodies as we can <3 
+      We want to be as inclusive as possible, so we try to show you our clothes on as many different bodies as we can <3
       In the description of every product you can see what size each model is wearing to get an idea about the fit.
     button: ''
     link: ''
@@ -49,7 +49,7 @@ blocks:
     size: h1
     lead: Here you can see what measurement you need to take to make sure your pieces fit perfectly. Keep in mind that those are measurements of your body, NOT the product itself.
     body: |-
-      For every product you can choose a different size, no matter how different your measurements are from “standard” sizes. We want to be as inclusive as possible, so if you have any concerns about the fit, feel free to let us know while choosing the size what you worry about. 
+      For every product you can choose a different size, no matter how different your measurements are from “standard” sizes. We want to be as inclusive as possible, so if you have any concerns about the fit, feel free to let us know while choosing the size what you worry about.
       How to measure yourself:
       1\. Bust: measure around the widest part of your torso.
       2\. Waist: measure around the smaller part of your torso.

@@ -29,8 +29,9 @@ export function getResponsiveSizes(src: ImageMetadata | undefined): string {
 }
 
 export async function optimizeImage(image: ImageMetadata | undefined, options: OptimizeImageOptions = {}): Promise<OptimizedImageAsset | undefined> {
-  if (!image)
+  if (!image) {
     return undefined
+  }
 
   const optimized = await getImage({
     src: image,
