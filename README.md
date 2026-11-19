@@ -1,14 +1,7 @@
-# Mania
+# Acid Fairies
 
-My website
+This is the official website of Acid Fairies, an independent fashion brand based in Poznan, Poland.
 
-## Development setup
+We create unique and stylish clothing that allows you to express your individuality and personality.
 
-The recommended Node.js version is defined in `mise.toml`. Mise can install it, but any compatible Node.js version manager can be used.
-
-```bash
-mise trust
-mise install
-npm ci
-npm run dev
-```
+Our goal is to make you feel amazing and beautiful in what you wear.
