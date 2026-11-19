@@ -17,12 +17,14 @@ collections:
     label_singular: Page
     folder: /content/pages
     media_folder: '{{media_folder}}/pages'
+    preview_path: "{{previewPath | default('/{{permalink}}/')}}"
     summary: "{{title}} ({{permalink}}) {{comment | ternary('_', '')}}{{comment}}{{comment | ternary('_', '')}}"
     description: Composable pages built from reusable blocks.
     icon: web
     fields:
       - {label: Title, name: title, widget: string, hint: Used for browser title only.}
       - {label: Permalink, name: permalink, widget: string, hint: "Permanent static hyperlink to a page. A leading slash is optional. Use 'home' for /."}
+      - {name: previewPath, widget: hidden, required: false}
       - {label: Comment, name: comment, widget: string, hint: Optional page description., required: false}
       - label: Blocks
         name: blocks
@@ -127,6 +129,7 @@ collections:
     label_singular: Design
     description: Managable collection of designs.
     folder: /content/designs
+    preview_path: '/shop/{{permalink}}/'
     media_folder: '{{media_folder}}/designs'
     icon: design_services
     summary: "[{{sortDate | date('YYYY-MM-DD')}}] {{title}} ({{section}}) {{isDraft | ternary('**_#draft_**', '')}}"
