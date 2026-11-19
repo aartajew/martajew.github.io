@@ -13,6 +13,8 @@ concurrency:
 
 jobs:
   stg:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Verify STG token
