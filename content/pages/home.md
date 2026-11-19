@@ -9,7 +9,7 @@ blocks:
     body: Feel free to visit our Instagram & TikTok to see new designs first!!
     button: shop
     link: /shop
-    intro: Welcome to our page <3
+    intro: Welcome to our page <3 PREVIEW DRAFT 1
     name: Acid Fairies
     image: /content/media/pages/P10Z0819 - BLUZA CZARNA ROZPIĘTA TYŁ MANIA.jpg
   - type: callout_block
