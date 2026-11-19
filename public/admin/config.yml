@@ -7,6 +7,7 @@ backend:
   name: github
   repo: aartajew/martajew.github.io
   preview_context: preview/cloudflare
+  skip_ci: false
   base_url: https://sveltia-cms-auth.adam-artajew.workers.dev
 
 media_folder: /content/media
