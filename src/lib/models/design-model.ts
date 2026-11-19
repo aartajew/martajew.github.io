@@ -7,12 +7,14 @@ export class DesignModel {
   private constructor(public readonly entry: DesignCollectionEntry, private readonly detailsPage: PageModel) {}
 
   static async fromEntry(entry: DesignCollectionEntry): Promise<DesignModel | undefined> {
-    if (!PageModel.sanitizePermalink(entry.data.permalink))
+    if (!PageModel.sanitizePermalink(entry.data.permalink)) {
       return undefined
+    }
 
     const detailsPage = await PageModel.fromReference(entry.data.detailsPage)
-    if (!detailsPage)
+    if (!detailsPage) {
       return undefined
+    }
 
     return new DesignModel(entry, detailsPage)
   }

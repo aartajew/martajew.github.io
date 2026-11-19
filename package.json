@@ -2,35 +2,31 @@
   "name": "mania-website",
   "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "eslint . --cache --fix --max-warnings=0 && actionlint && astro check",
-    "upgrade": "ncu -u"
+    "lint": "node -v && eslint --cache --max-warnings=0 && actionlint && astro check",
+    "lint:fix": "eslint --cache --fix",
+    "outdated": "ncu --peer",
+    "upgrade": "ncu --peer -u"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.7.3",
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/sitemap": "^3.7.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.1",
-    "astro-eslint-parser": "^1.4.0",
-    "eslint": "^10.1.0",
-    "eslint-plugin-astro": "^1.6.0",
+    "@antfu/eslint-config": "^10.0.0",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.11",
+    "astro-eslint-parser": "^3.2.0",
+    "eslint": "^10.14.0",
+    "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-format": "^2.0.1",
     "gray-matter": "^4.0.3",
-    "marked": "^17.0.5",
+    "marked": "^18.2.0",
     "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
-  },
-  "overrides": {
-    "vite": "^7"
+    "tailwindcss": "^4.3.5",
+    "typescript": "^6.0.3"
   }
 }

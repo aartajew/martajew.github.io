@@ -2,11 +2,12 @@ name: Preview on Cloudflare
 
 on:
   pull_request:
-    types: [ opened, synchronize, reopened ]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
   statuses: write
+  deployments: write
 
 concurrency:
   group: preview-${{ github.event.pull_request.number }}
@@ -16,6 +17,9 @@ jobs:
   preview:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    environment:
+      name: preview/pr-${{ github.event.pull_request.number }}
+      url: ${{ steps.cloudflare.outputs.url }}
     steps:
       - uses: actions/checkout@v7
       - name: Read Node.js version
@@ -25,6 +29,7 @@ jobs:
         with:
           node-version: ${{ steps.node-version.outputs.version }}
       - name: Deploy Cloudflare preview
+        id: cloudflare
         shell: bash
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -36,6 +41,7 @@ jobs:
           output="$RUNNER_TEMP/wrangler-preview.ndjson"
           WRANGLER_OUTPUT_FILE_PATH="$output" npx --yes wrangler@latest preview --name "pr-$PR_NUMBER"
           url=$(jq -er 'select(.type == "preview") | .preview_urls[0]' "$output" | tail -n 1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
           gh api "repos/$GITHUB_REPOSITORY/statuses/$PR_SHA" \
             -f state=success \
             -f context=preview/cloudflare \
