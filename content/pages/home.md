@@ -1,6 +1,7 @@
 ---
 title: Home
 permalink: home
+previewPath: /
 comment: Landing page
 blocks:
   - type: hero_block
