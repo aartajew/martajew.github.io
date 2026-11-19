@@ -1,5 +1,5 @@
 publish_mode: simple
-site_url: https://aartajew.github.io/acid-fairies-stg/
+site_url: https://stg.acidfairies.com/
 
 backend:
   name: github

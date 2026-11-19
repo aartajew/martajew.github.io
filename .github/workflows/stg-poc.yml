@@ -30,12 +30,13 @@ jobs:
       - uses: withastro/action@v6
         with:
           node-version: ${{ steps.node-version.outputs.version }}
-          build-cmd: npm run build -- --site https://aartajew.github.io --base /acid-fairies-stg
+          build-cmd: npm run build -- --site https://stg.acidfairies.com
       - name: Publish static site
         env:
           STG_REPO_TOKEN: ${{ secrets.STG_REPO_TOKEN }}
         run: |
           touch dist/.nojekyll
+          echo stg.acidfairies.com > dist/CNAME
           git -C dist init -b gh-pages
           git -C dist config user.name 'github-actions[bot]'
           git -C dist config user.email '41898282+github-actions[bot]@users.noreply.github.com'
