@@ -16,5 +16,4 @@ symbolImage: ''
 copyright: |-
   **Acid Fairies** © 2026 All Rights Reserved
   Built with **[Astro](https://astro.build/)** by **[Adam Artajew](https://github.com/aartajew)**
-  **STG TEST SETTINGS**
 ---

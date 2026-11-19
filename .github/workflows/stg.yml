@@ -13,8 +13,6 @@ concurrency:
 
 jobs:
   stg:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Verify STG token
@@ -45,8 +43,3 @@ jobs:
           git -C dist add -A
           git -C dist commit -qm "Deploy $GITHUB_SHA"
           git -C dist push --force "https://x-access-token:${STG_REPO_TOKEN}@github.com/aartajew/acid-fairies-stg.git" HEAD:gh-pages
-      - name: Test CMS publish dispatch
-        if: contains(github.event.head_commit.message, '[poc-publish]')
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST "repos/$GITHUB_REPOSITORY/dispatches" -f event_type=sveltia-cms-publish

@@ -5,7 +5,7 @@ comment: ''
 blocks:
   - type: callout_block
     size: h1
-    lead: Acid Fairies is an independent brand made by 3 friends who create for those who want to embrace their unique style!! [STG TEST ABOUT]
+    lead: Acid Fairies is an independent brand made by 3 friends who create for those who want to embrace their unique style!!
     body: At Acid Fairies, fashion isn’t just about clothes — it’s a way to express your individuality, your personality and everything that makes you, you. We want to create clothes that make  everyone feel comfortable and the most themselves. Our mission is to empower people to express who they truly are without stereotypes and judgment.
     button: shop
     link: /shop
