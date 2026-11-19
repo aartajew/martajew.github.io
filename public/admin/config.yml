@@ -1,12 +1,11 @@
-publish_mode:
-  type: preview
-  direct_publish: true
-  allow_incomplete_drafts: false
+publish_mode: simple
+site_url: https://stg.acidfairies.com/
 
 backend:
   name: github
   repo: aartajew/martajew.github.io
-  preview_context: preview/cloudflare
+  branch: stg
+  skip_ci: true
   base_url: https://sveltia-cms-auth.adam-artajew.workers.dev
 
 media_folder: /content/media
