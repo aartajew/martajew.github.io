@@ -2,7 +2,7 @@
 title: Hekate Sweatshirt
 permalink: hekate-sweatshirt
 subtitle: PREORDER
-intro: Check your bust and waist measurements and arm length in the size chart to find out what size you are.
+intro: Check your bust and waist measurements and arm length in the size chart to find out what size you are. DRAFT CHANGE 1
 badge: ''
 sortDate: 2026-10-29
 detailsPage: design-details
